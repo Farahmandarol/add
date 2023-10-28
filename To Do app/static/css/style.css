@@ -1,0 +1,225 @@
+body {
+    text-align: center !important;
+    background-image: url("../img/1112.jpg") !important;
+    width: 100% !important;
+}
+
+html {
+    /*background-color: #E4E9FD  !important;*/
+    /*background-image: -webkit-linear-gradient(65deg, #EB455F 50%, #FAF8F1 50%)  !important;*/
+    min-height: 1000px !important;
+    font-family: 'helvetica neue' !important;
+}
+
+h1 {
+    color: #fff !important;
+    padding: 10px !important;
+}
+
+.box {
+    max-width: 400px !important;
+    margin: 50px auto !important;
+    background: white !important;
+    border-radius: 5px !important;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+#heading {
+    background-color: #EB455F !important;
+    text-align: center !important;
+}
+
+#done_heading {
+    max-width: 90%;
+    margin: 0 auto !important;
+    border-radius: 5px !important;
+    box-shadow: 15px 5px 25px -5px rgba(0, 0, 0, 0.3) !important;
+    background-color:#EB455F;
+}
+
+.item {
+    min-height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-bottom: 1px solid #F1F1F1 !important;
+}
+
+.item:last-child {
+    border-bottom: 0 !important;
+}
+
+input:checked + .True {
+    text-decoration: line-through !important;
+    text-decoration-color: #EB455F !important;
+    color: gray !important;
+
+
+}
+
+.True {
+    width: 300px !important;
+    text-align: left !important;
+    font-weight: inherit !important;
+    font-family: 'Arial', sans-serif;
+}
+
+input[type="checkbox"] {
+    margin: 20px !important;
+}
+
+p {
+    margin: 0 !important;
+    padding: 20px !important;
+    font-size: 20px !important;
+    font-weight: 200 !important;
+    color: #2B3467 !important;
+}
+
+form {
+    text-align: center !important;
+    margin-left: 20px !important;
+}
+
+button.add {
+    min-height: 50px !important;
+    width: 50px !important;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #EB455F;
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 5px;
+    border-width: 0;
+}
+
+button.add:hover {
+    background-color: #F38181;
+    color: green;
+    font-weight: bolder;
+    border-style: solid 1px #EB455F;
+    cursor: pointer;
+
+}
+
+#trash, .trash {
+    min-height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 330px !important;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    background: #EB455F;
+    border-width: 0;
+    cursor: pointer;
+}
+
+.trash {
+    margin-left: 320px !important;
+}
+
+#trash:hover {
+    background-color: #fff3cd;
+    color: red;
+
+}
+
+input[type="text"] {
+    text-align: center;
+    height: 60px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 313px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #EB455F;
+}
+
+::placeholder {
+    color: grey;
+    opacity: 1;
+}
+
+footer {
+    color: white;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    max-width: 400px !important;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px !important;
+}
+
+.dropbtn {
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
+
+.row {
+    padding: 0 20px !important;
+    margin-bottom: 40px !important;
+}
+
+.row div .card {
+    background: None !important;
+    margin-bottom: 20px;
+}
+
+.major_input {
+    margin-right: 10px !important;
+}
+
+.done_box {
+    max-width: 95% !important;
+    margin: 50px auto !important;
+}
+
+.done_box .item {
+    background-color: #ffffff;
+    border-radius: 5px;
+    /*margin-bottom: 10px;*/
+
+}

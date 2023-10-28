@@ -1,0 +1,163 @@
+{% include ("partial/header.html") %}
+
+<!--&lt;!&ndash; onChange="this.form.submit()"  &ndash;&gt;-->
+<!--<header class="masthead"-->
+<!--        style="background-image: url('../static/img/11.jpg')">-->
+
+
+<div class="row">
+    {% for major in majors %}
+    <div class="col-sm-6 col-lg-4 col-md-6 mb-3 mb-sm-0">
+        <div class="card">
+            <form action="/delete_title" method="post">
+                {{major.major}}
+                <input type="hidden" name="title_id" value="{{major.id}}">
+                <button class="btn btn-outline-danger" type="submit">delete</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<!-- ///// --------------------------------------------  ////////-->
+<div class="box" id="heading">
+    {% if date==None %}
+    <h1>To Do app</h1>
+    {% elif date==today %}
+    <h1>Today TO DOs</h1>
+    {% else %}
+    <h1>{{date}} TO DOs</h1>
+    {% endif %}
+
+</div>
+
+<div class="dropdown">
+    <button class="dropbtn btn btn-lg btn-outline-danger">Task Title</button>
+
+    <div class="dropdown-content">
+        {% for major in majors %}
+        <a href="{{url_for('home',date=date)}}">{{major.major}}</a>
+        {% endfor %}
+        <form action="/add_title" method="post">
+            <input class="form-control major_input" name="new_major" placeholder="Add new task title..." required>
+            <button type="submit" class="btn btn-outline-danger btn-block">Add Title</button>
+        </form>
+    </div>
+
+</div>
+
+
+<div class="dropdown">
+    <button class="dropbtn btn btn-lg btn-outline-danger">Filter Tasks By DATE</button>
+
+    <div class="dropdown-content">
+        {% for date in dates %}
+        {% if date==today %}
+        <a href="{{url_for('home',date=date)}}">Today</a>
+        {% else %}
+        <a href="{{url_for('home',date=date)}}">{{date}}</a>
+        {% endif %}
+        {% endfor %}
+        <a href="{{url_for('home',date='All')}}">ALL</a>
+    </div>
+
+</div>
+
+
+<div class="box">
+    {% for task in tasks %}
+    <form action="/update_tasks" method="post">
+
+
+    </form>
+    <form action="/delete_update_task" method="post">
+        <div class="item">
+            {% if task.is_done == True %}
+            <input type="checkbox" name="checkbox" value="{{task.id}}" class="btn"
+                   href="{{url_for('delete_task' ,task_id = 3)}}"
+                   onchange="this.form.submit()" checked>
+            <p class="True">{{task.task}}</p>
+            {% elif task.is_done == False %}
+            <input type="checkbox" name="checkbox" value="{{task.id}}" class="btn" onchange="this.form.submit()">
+            <p class="True">{{task.task}}</p>
+            {% endif %}
+        </div>
+        <input type="hidden" name="listTitle" value="">
+    </form>
+    {% endfor %}
+
+    <form class="" action="/add_task" method="post">
+        <input type="text" name="newTask" placeholder="Add New item..." value="" required  autocomplete="off">
+        <button class="add" type="submit" name="list">+</button>
+    </form>
+</div>
+
+<!--      display the done tasks in separate cards     -->
+<div id="done_heading">
+    {% if done_task_date==None %}
+    <h1>General Done Tasks</h1>
+    {% elif done_task_date ==today %}
+    <h1>Today Done Tasks</h1>
+    {% else %}
+    <h1>{{done_task_date}} Done Tasks</h1>
+    {% endif %}
+
+</div>
+<div class="dropdown">
+    <button class="dropbtn btn btn-lg btn-outline-danger">Filter Done Tasks By DATE</button>
+
+    <div class="dropdown-content">
+        {% for date in done_date %}
+        {% if date==today %}
+        <a href="{{url_for('home',done_date=date)}}">Today</a>
+        {% else %}
+        <a href="{{url_for('home',done_date=date)}}">{{date}}</a>
+        {% endif %}
+        {% endfor %}
+        <a href="{{url_for('home',done_date='All')}}">ALL</a>
+    </div>
+
+</div>
+
+<!------------------------------------- test ------------------------------------------>
+<div class="row done_box">
+    {% for task in done_tasks %}
+    <div class="col-sm-6 col-lg-4 col-md-6 mb-3 mb-sm-0">
+
+        <form action="{{url_for('toggle_task',id=task.id)}}" method="post">
+            <div class="card">
+                <div class="item">
+                    <input type="checkbox" name="checked" value="{{task.id}}" class="btn"
+                           onchange="this.form.submit()" checked>
+                    <p class="True">{{task.task}}</p>
+                    <button class="trash" type="submit" name="trash" value="{{task.id}}"><i
+                            class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% include ("partial/footer.html") %}
+
+
+<!--<div class="box ">-->
+<!--    {% for task in done_tasks %}-->
+<!--    <form action="{{url_for('toggle_task',id=task.id)}}" method="post">-->
+<!--        <div class="item">-->
+<!--            <label>-->
+<!--                <input type="checkbox" name="checked" value="{{task.id}}" class="btn" onchange="this.form.submit()">-->
+<!--            </label>-->
+<!--            <p class="True">{{task.task}}</p>-->
+<!--            <button id="trash" type="submit" name="trash" value="{{task.id}}"><i class="fa-solid fa-trash-can"></i>-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </form>-->
+
+<!--    {% endfor %}-->
+<!--</div>-->
